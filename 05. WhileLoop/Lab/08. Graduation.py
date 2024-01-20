@@ -1,16 +1,18 @@
-name = input()
-sum_grade = 0.00
-year = 1
-fail_count = 0
-while year <= 12:
-    grade = float(input())
-    if grade < 4.00:
-        fail_count += 1
+student_name = input()
+
+grade = 1
+sum_grade_marks = 0.00
+fail = 0
+
+while grade < 13:
+    grade_mark = float(input())
+    if grade_mark >= 4:
+        grade += 1
+        sum_grade_marks += grade_mark
     else:
-        sum_grade += grade
-        year += 1
-    if fail_count == 2:
-        print(f"{name} has been excluded at {year} grade")
-        break
-if year == 13:
-    print(f"{name} graduated. Average grade: {sum_grade / (year - 1):.2f}")
+        fail += 1
+        if fail == 2:
+            print(f'{student_name} has been excluded at {grade} grade')
+            break
+else:
+    print(f'{student_name} graduated. Average grade: {sum_grade_marks / 12:.2f}')
